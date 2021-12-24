@@ -1,0 +1,19 @@
+= form_for @message do |f|
+  - if @message.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@message.errors.count, 'error')} prohibited this message from being saved:"
+      ul
+        - @message.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :sender, 'Autor'
+    = f.text_field :sender
+  .field.mt-1
+    .row
+      .col-2
+        = f.label :content, 'Mensaje' 
+      .col-10
+        = f.text_area :content
+  .actions
+    input type='submit'

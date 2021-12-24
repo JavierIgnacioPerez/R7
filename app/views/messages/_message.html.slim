@@ -1,0 +1,5 @@
+.alert.alert-secondary.message
+  .d-flex style='justify-content: space-between'
+    label #{message.sender}:
+    label = message.created_at
+  p.content = message.content

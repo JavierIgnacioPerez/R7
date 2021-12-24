@@ -1,0 +1,25 @@
+.chat {
+  @extend .card;
+  padding: 1rem;
+  .chat-messages {
+    @extend .card-body;
+    border: solid 1px gray;
+    .message {
+      margin: 0.5rem;
+      width: 97.5%;
+      .content {
+        font-size: 1.25rem
+      }
+    }
+  }
+}
+.field {
+  label {
+    margin-right: 1rem;
+  }
+  .actions {
+    input {
+      @extend .btn, .btn-primary;
+    }
+  }
+}
