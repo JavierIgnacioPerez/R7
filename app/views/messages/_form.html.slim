@@ -9,10 +9,9 @@
   .field
     = f.hidden_field :sender, value: @user_name
   .field.mt-1
+    = f.label :content, 'Escribe tus mensajes aqui'
     .row
-      .col-2
-        = f.label :content, 'Mensaje'
-      .col-10
-        = f.text_area :content,  data: {target: 'chat.newMessageArea'}
-  .actions.text-end
-    input type='submit' class='btn btn-primary'
+      .col-12
+        = f.text_area :content,  data: {target: 'chat.newMessageArea'}, class: 'w-100'
+  .actions.text-end.mt-2
+    = f.submit 'Enviar mensaje', class: 'btn btn-primary'

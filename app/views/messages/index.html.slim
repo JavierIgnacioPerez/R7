@@ -1,4 +1,6 @@
-h1 Chat agilao jotwai
+.text-center
+  .card.my-2.ms-auto style='width: 30%'
+    = image_tag 'logo_wide.png'
 = turbo_stream_from :messages
 = turbo_stream_from :system_messages
 .chat data-controller='chat'

@@ -40,7 +40,7 @@
 }
 
 body.landing{
-  background: url('background.jpg');
+  background: url('background');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -48,5 +48,9 @@ body.landing{
 }
 
 body {
-  background: #18a84fda;
+  background: url('background');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50%;
 }
