@@ -1,10 +1,9 @@
 .login-container
   .card.login
-    .card-header
-      h1.card-title Ingresa tu correo Avispa
+    = image_tag 'logo_agilao.png', class: 'card-img-top', style: 'width: 60%; margin: 0 auto'
     .card-body
       = form_with url: sign_in_landing_index_path do |f|
-        = f.label :email, 'Correo'
+        = f.label :email, 'Ingresa con tu correo'
         = f.email_field :email, class: 'form-control', required: true, placeholder: 'example@avispa.tech'
         .text-end.mt-3
           = f.submit 'Ingresar' , class: 'btn btn-primary'

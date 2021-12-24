@@ -28,8 +28,6 @@ class MessagesController < ApplicationController
 
   # POST /messages or /messages.json
   def create
-    puts '/////////////////////////'
-    puts message_params.inspect
     @message = Message.new(message_params)
 
     respond_to do |format|
@@ -79,8 +77,6 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      puts '///////////////////////////////'
-      puts params.inspect
       params.require(:message).permit!
     end
 

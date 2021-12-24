@@ -1,5 +1,9 @@
-h1 Chat agilao jotwai
+.d-flex.justify-content-space-between
+  = link_to 'Salir', root_path, class: 'btn btn-back'
+  .card.my-2.ms-auto style='width: 30%'
+    = image_tag 'logo_wide.png'
 .chat
+  h2 Salas de chat
   .chat-messages
     / = turbo_frame_tag :rooms, class: 'row' do
     = render partial: 'room', collection: @rooms
