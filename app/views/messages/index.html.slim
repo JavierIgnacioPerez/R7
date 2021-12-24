@@ -4,10 +4,12 @@ h1 Chat agilao jotwai
 = turbo_frame_tag :new_message
 = turbo_stream_from :messages
 = turbo_stream_from :system_messages
+
 .chat
   .d-flex style='justify-content: space-between'
     h5.card-title Chat
-    h5 Usuarios conectados #{ActionCable.server.connections.length} 🟢
+    = turbo_frame_tag :connection_count do
+      = render partial: 'system_messages/system_message', locals: { system_message: @system_message }
   .chat-messages
     = turbo_frame_tag :messages, class: 'row' do
       = render partial: 'message', collection: @messages

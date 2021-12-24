@@ -4,8 +4,11 @@ class MessagesController < ApplicationController
   # GET /messages or /messages.json
   def index
     @messages = Message.all.order(created_at: :desc)
-    SystemMessage.create(message: 'new connection',
-                         connections: ActionCable.server.connections.length )
+    @system_message = SystemMessage.create( message: 'new connection', connections: ActionCable.server.connections.length ) if SystemMessage.first.blank?
+    if SystemMessage.first.present?
+      SystemMessage.first.update( connections: ActionCable.server.connections.length )
+      @system_message = SystemMessage.first
+    end
   end
 
   # GET /messages/1 or /messages/1.json
