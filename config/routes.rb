@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :messages
+  resources :rooms, param: :room_id do
+    member do
+      resources :messages
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root 'landing#home'
 

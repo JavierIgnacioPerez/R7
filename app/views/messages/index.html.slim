@@ -1,6 +1,8 @@
-h1 Chat agilao jotwai
 = turbo_stream_from :messages
 = turbo_stream_from :system_messages
+
+= link_to 'Volver a rooms', rooms_path, class: 'btn btn-secondary-outline'
+
 .chat data-controller='chat'
   .d-flex style='justify-content: space-between'
     h5.card-title Chat

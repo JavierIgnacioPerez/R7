@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
 
   # GET /messages or /messages.json
   def index
-    @messages = Message.all.order(created_at: :asc)    
+    @messages = Message.all.where(room_id: params['room_id']).order(created_at: :asc)    
     @system_message = SystemMessage.create( message: 'new connection', connections: ActionCable.server.connections.length ) if SystemMessage.first.blank?
     if SystemMessage.first.present?
       SystemMessage.first.update( connections: ActionCable.server.connections.length )
@@ -28,6 +28,8 @@ class MessagesController < ApplicationController
 
   # POST /messages or /messages.json
   def create
+    puts '/////////////////////////'
+    puts message_params.inspect
     @message = Message.new(message_params)
 
     respond_to do |format|
@@ -77,7 +79,9 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:content, :sender)
+      puts '///////////////////////////////'
+      puts params.inspect
+      params.require(:message).permit!
     end
 
     def set_user

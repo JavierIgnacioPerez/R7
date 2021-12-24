@@ -1,0 +1,5 @@
+.alert.alert-secondary.message
+  .d-flex style='justify-content: space-between'
+    h2 #{room.name}
+
+    = link_to 'Ir a chat', messages_path(room.id), class: 'btn btn-secondary-outline'

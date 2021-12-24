@@ -13,6 +13,7 @@
       .col-2
         = f.label :content, 'Mensaje'
       .col-10
+        = f.hidden_field :room_id, value: params[:room_id]
         = f.text_area :content,  data: {target: 'chat.newMessageArea'}
   .actions.text-end
     input type='submit' class='btn btn-primary'

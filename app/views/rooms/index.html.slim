@@ -1,0 +1,5 @@
+h1 Chat agilao jotwai
+.chat
+  .chat-messages
+    / = turbo_frame_tag :rooms, class: 'row' do
+    = render partial: 'room', collection: @rooms
