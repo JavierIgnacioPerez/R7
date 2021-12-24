@@ -1,0 +1,10 @@
+.login-container
+  .card.login
+    .card-header
+      h1.card-title Ingresa tu correo Avispa
+    .card-body
+      = form_with url: sign_in_landing_index_path do |f|
+        = f.label :email, 'Correo'
+        = f.email_field :email, class: 'form-control', required: true, placeholder: 'example@avispa.tech'
+        .text-end.mt-3
+          = f.submit 'Ingresar' , class: 'btn btn-primary'

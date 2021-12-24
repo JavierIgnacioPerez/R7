@@ -3,6 +3,8 @@
   padding: 1rem;
   .chat-messages {
     @extend .card-body;
+    overflow-y: scroll;
+    height: 60vh;
     border: solid 1px gray;
     .message {
       margin: 0.5rem;
@@ -22,4 +24,29 @@
       @extend .btn, .btn-primary;
     }
   }
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  h1 {
+    font-size: 2rem;
+  }
+  .card.login {
+    width: 55%
+  }
+  padding: 5rem;
+  margin: 5rem;
+}
+
+body.landing{
+  background: url('background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50%;
+}
+
+body {
+  background: #18a84fda;
 }

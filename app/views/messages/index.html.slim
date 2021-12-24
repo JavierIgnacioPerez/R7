@@ -1,13 +1,11 @@
 h1 Chat agilao jotwai
-
-= link_to 'New Message', new_message_path, data: { 'turbo-frame': 'new_message' }
-= turbo_frame_tag :new_message
 = turbo_stream_from :messages
 = turbo_stream_from :system_messages
-.chat
+.chat data-controller='chat'
   .d-flex style='justify-content: space-between'
     h5.card-title Chat
     h5 Usuarios conectados #{ActionCable.server.connections.length} 🟢
-  .chat-messages
+  .chat-messages data-chat-target='chatMessages'
     = turbo_frame_tag :messages, class: 'row' do
       = render partial: 'message', collection: @messages
+  = render partial: 'new_message'

@@ -7,13 +7,12 @@
           li = message
 
   .field
-    = f.label :sender, 'Autor'
-    = f.text_field :sender
+    = f.hidden_field :sender, value: @user_name
   .field.mt-1
     .row
       .col-2
-        = f.label :content, 'Mensaje' 
+        = f.label :content, 'Mensaje'
       .col-10
-        = f.text_area :content
-  .actions
-    input type='submit'
+        = f.text_area :content,  data: {target: 'chat.newMessageArea'}
+  .actions.text-end
+    input type='submit' class='btn btn-primary'

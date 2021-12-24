@@ -1,11 +1,13 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: %i[ show edit update destroy ]
+  before_action :set_user
 
   # GET /messages or /messages.json
   def index
-    @messages = Message.all.order(created_at: :desc)
+    @messages = Message.all.order(created_at: :asc)
     SystemMessage.create(message: 'new connection',
                          connections: ActionCable.server.connections.length )
+    @message = Message.new
   end
 
   # GET /messages/1 or /messages/1.json
@@ -73,5 +75,10 @@ class MessagesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def message_params
       params.require(:message).permit(:content, :sender)
+    end
+
+    def set_user
+      @user_email = cookies[:user_email] if cookies[:user_email].present?
+      @user_name = cookies[:user_name] if cookies[:user_name].present?
     end
 end
