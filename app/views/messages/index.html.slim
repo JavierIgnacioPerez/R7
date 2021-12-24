@@ -4,7 +4,8 @@ h1 Chat agilao jotwai
 .chat data-controller='chat'
   .d-flex style='justify-content: space-between'
     h5.card-title Chat
-    h5 Usuarios conectados #{ActionCable.server.connections.length} 🟢
+    = turbo_frame_tag :connection_count do
+      = render partial: 'system_messages/system_message', locals: { system_message: @system_message }
   .chat-messages data-chat-target='chatMessages'
     = turbo_frame_tag :messages, class: 'row' do
       = render partial: 'message', collection: @messages
